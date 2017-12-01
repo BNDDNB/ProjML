@@ -1,0 +1,56 @@
+   12 A = eye(4)
+   13 A[:,1:2]
+   14 A(:,1:2);
+   15 B = A(:,1:2)
+   16 B =A(0:4,1:2)
+   17 B =A(1:4,1:2)
+   18 x = [1:4]
+   19 size(x)
+   20 x'
+   21 size (X)
+   22 size (x)
+   23 x = x'
+   24 size (x)
+   25 A
+   26 X
+   27 x
+   28 A.*x
+   29 y = [2:5]
+   30 y = y'
+   31 xy
+   32 x.*y
+   33 sum(x.*y)
+   34 exit
+   35 # Octave 4.0.3, Thu Nov 30 22:06:26 2017 EST <irixis@linux-fdcx>
+   36 # Octave 4.0.3, Fri Dec 01 10:29:55 2017 EST <irixis@linux-fdcx>
+   37 # Octave 4.0.3, Fri Dec 01 10:33:34 2017 EST <irixis@linux-fdcx>
+   38 who
+   39 cd Projects/MLproj
+   40 cd Projects/
+   41 ls
+   42 cd MLProj/
+   43 ls
+   44 cd MLex1
+   45 ls
+   46 cd ex1
+   47 ls
+   48 load ex1data1.txt
+   49 who
+   50 ls
+   51 who
+   52 ls
+   53 x = ex1data1[:,1]
+   54 x = ex1data1(:,1)
+   55 y = ex1data1(:,2)
+   56 m = length(y)
+   57 plot(x,y,'rx','MarkerSize',10);
+   58 ylabel('Profit in $10k');
+   59 xlabel('Profit in 10k\'s');
+   60 xlabel('Profit in 10k's');
+   61 xlabel('Profit in 10k%s');
+   62 xlabel('Profit in 10k%'s');
+   63 xlabel('Profit in 10k');
+   64 xlabel('Population in 10k');
+   65 ones(m,1)
+   66 X = [ones(m,1),data(:,1)]
+   67 X = [ones(m,1),ex1data1(:,1)]
