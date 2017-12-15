@@ -16,9 +16,13 @@ function [J grad] = nnCostFunction(nn_params, ...
 
 % Reshape nn_params back into the parameters Theta1 and Theta2, the weight matrices
 % for our 2 layer neural network
+% the reason for reshaping the vector was because all matrix values were gotten 
+% into a 1 by n vector, the input layer size is the number of input to first hiden
+% layer, and number of output needed per layer is the hidden layer size
 Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
                  hidden_layer_size, (input_layer_size + 1));
-
+% theta would then take the rest of parameters left in the vector, and then reshape
+% based on assumption that another layer would have the same size
 Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
                  num_labels, (hidden_layer_size + 1));
 
@@ -62,18 +66,18 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-
-
-
-
-
-
-
-
-
-
-
-
+%first fix dimension of X
+X = [X,ones(m,1)];
+%perform z calculation and sigmoid on calculated z values
+z = X*Theta1';
+first_layer = [sigmoid(z),ones(m,1)];
+%calculate output layer z and their sigmoid values
+z = first_layer*Theta2';
+out = sigmoid(z)';
+%assuming J now computs total cost of all samples from 1-10
+for c = 1:10
+    J = J + sum((log(out(c,:)))' .* (-(y==c)) - (1-(y==c)) .* (log(1-out(c,:)))') / m;
+end
 
 
 
