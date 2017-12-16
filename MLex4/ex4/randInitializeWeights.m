@@ -20,7 +20,9 @@ W = zeros(L_out, 1 + L_in);
 %
 
 
-
+eps_init = 0.12;
+%L_out - next layer number of nodes, L_in - features
+W = rand(L_out, 1+L_in)*2*eps_init - eps_init;
 
 
 

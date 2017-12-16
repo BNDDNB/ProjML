@@ -67,19 +67,20 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 %first fix dimension of X
-X = [X,ones(m,1)];
+X = [ones(m,1),X];
 %perform z calculation and sigmoid on calculated z values
 z = X*Theta1';
-first_layer = [sigmoid(z),ones(m,1)];
+first_layer = [ones(m,1),sigmoid(z)];
 %calculate output layer z and their sigmoid values
 z = first_layer*Theta2';
 out = sigmoid(z)';
 %assuming J now computs total cost of all samples from 1-10
-for c = 1:10
-    J = J + sum((log(out(c,:)))' .* (-(y==c)) - (1-(y==c)) .* (log(1-out(c,:)))') / m;
+k = size(out,1);
+for c = 1:k
+    J = J + sum(((log(out(c,:)))' .* (-(y==c))) - ((1.-(y==c)) .* (log(1.-out(c,:)))'));
 end
 
-
+J = J/m + (sum(sum(Theta1(:,2:end).^2)) +sum(sum(Theta2(:,2:end).^2))) * lambda/2/m ;
 
 
 
