@@ -33,6 +33,7 @@ m = size(X, 1);
 J = 0;
 Theta1_grad = zeros(size(Theta1));
 Theta2_grad = zeros(size(Theta2));
+delta = 
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: You should complete the code by working through the
@@ -69,20 +70,29 @@ Theta2_grad = zeros(size(Theta2));
 %first fix dimension of X
 X = [ones(m,1),X];
 %perform z calculation and sigmoid on calculated z values
-z = X*Theta1';
-first_layer = [ones(m,1),sigmoid(z)];
+z2 = X*Theta1';
+first_layer = [ones(m,1),sigmoid(z2)];
 %calculate output layer z and their sigmoid values
-z = first_layer*Theta2';
-out = sigmoid(z)';
+z3 = first_layer*Theta2';
+out = sigmoid(z3)';
 %assuming J now computs total cost of all samples from 1-10
 k = size(out,1);
+
 for c = 1:k
     J = J + sum(((log(out(c,:)))' .* (-(y==c))) - ((1.-(y==c)) .* (log(1.-out(c,:)))'));
 end
 
-J = J/m + (sum(sum(Theta1(:,2:end).^2)) +sum(sum(Theta2(:,2:end).^2))) * lambda/2/m ;
+J = J/m + (sum(sum(Theta1(:,2:end).^2))ncm  +sum(sum(Theta2(:,2:end).^2))) * lambda/2/m ;
 
+%following uses backpropagation algo, for 1 hidden layer, number of layers not given
+%last layer - no bias
+for c = 1:k
+    del3 = (out'.- (y==c))
+end
 
+% hidden layer 1 bias
+
+del2 = Theta2' * del3 .* (sigmoidGradient(z2))'
 
 
 % -------------------------------------------------------------
