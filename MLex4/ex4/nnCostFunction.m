@@ -97,7 +97,7 @@ end
 % hidden layer 1 bias and remove calculated delta for biased layer
 % Also getting the grads for each of the theta from the source to hidden
 
-del2 = (Theta2' * del3') .* sigmoidGradient(first_layer)';
+del2 = (Theta2' * del3') .* sigmoidGradient([ones(m,1),z2])';
 Theta1_grad = del2(2:end,:) * X / m;
 Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + lambda/m * Theta1(:,2:end);
 
