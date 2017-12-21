@@ -99,8 +99,10 @@ end
 
 del2 = (Theta2' * del3') .* sigmoidGradient(first_layer)';
 Theta1_grad = del2(2:end,:) * X / m;
+Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + lambda/m * Theta1(:,2:end);
 
 Theta2_grad = del3' * first_layer / m;
+Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + lambda/m * Theta2(:,2:end);
 % -------------------------------------------------------------
 
 % =========================================================================
