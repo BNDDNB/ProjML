@@ -13,6 +13,9 @@ function numgrad = computeNumericalGradient(J, theta)
 %        to theta(i).)
 %                
 
+%initialize 2 mtx where 1 holds the constant epsilon value
+%the other holds the estimate of the gradient value
+%epsilon can be randomized, but not necessary
 numgrad = zeros(size(theta));
 perturb = zeros(size(theta));
 e = 1e-4;
