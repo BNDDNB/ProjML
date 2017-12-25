@@ -18,18 +18,12 @@ grad = zeros(size(theta));
 %
 %               You should set J to the cost and grad to the gradient.
 %
+% based on codes in ex5, theta will have 1 features more than X, then X needed additional dimention 
+%X = [zeros(m,1), X];
 
-
-
-
-
-
-
-
-
-
-
-
+J = sum((X * theta - y).^2) / 2 / m + sum((theta.^2)(2:end)) * lambda / 2 / m;
+grad(1,:) = sum((X*theta - y) .* X (:,1)) / m;
+grad(2:end,:) = sum((X*theta - y) .* X(:,2:end))' / m + lambda/m * theta(2:end,:);
 % =========================================================================
 
 grad = grad(:);
