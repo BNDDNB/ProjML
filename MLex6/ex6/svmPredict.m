@@ -28,7 +28,10 @@ elseif strfind(func2str(model.kernelFunction), 'gaussianKernel')
     % This is equivalent to computing the kernel on every pair of examples
     X1 = sum(X.^2, 2);
     X2 = sum(model.X.^2, 2)';
+    %this is equivalent of (x-y)^2
     K = bsxfun(@plus, X1, bsxfun(@plus, X2, - 2 * X * model.X'));
+    %after calc K, then uses the 1,0 to create e to appropriate power, then raise
+    %it to the matrix to get get each matrix kernel val
     K = model.kernelFunction(1, 0) .^ K;
     K = bsxfun(@times, model.y', K);
     K = bsxfun(@times, model.alphas', K);
