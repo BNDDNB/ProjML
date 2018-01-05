@@ -25,11 +25,14 @@ clear ; close all; clc
 %  implement the preprocessing steps for each email. You should
 %  complete the code in processEmail.m to produce a word indices vector
 %  for a given email.
+%essentially creating a word_indices array that 
 
 fprintf('\nPreprocessing sample email (emailSample1.txt)\n');
 
 % Extract Features
 file_contents = readFile('emailSample1.txt');
+%in this file, another func will extract the dictionary list from
+%the file
 word_indices  = processEmail(file_contents);
 
 % Print Stats
