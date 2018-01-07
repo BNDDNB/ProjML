@@ -55,6 +55,7 @@ fprintf('\nRunning PCA on example dataset.\n\n');
 
 %  Draw the eigenvectors centered at mean of data. These lines show the
 %  directions of maximum variations in the dataset.
+mu
 hold on;
 drawLine(mu, mu + 1.5 * S(1,1) * U(:,1)', '-k', 'LineWidth', 2);
 drawLine(mu, mu + 1.5 * S(2,2) * U(:,2)', '-k', 'LineWidth', 2);
