@@ -15,6 +15,12 @@ centroids = zeros(K, size(X, 2));
 
 
 
+%randperm is the random permutation function that returns a row vecotr containing a random perm of the integers from 1 to specified number
+
+randinx = randperm(size(X,1));
+
+%select first 1 to K items that is equivalent of shuffling them around
+centroids = X(randinx(1:K),:);
 
 
 

@@ -123,6 +123,7 @@ X = reshape(A, img_size(1) * img_size(2), 3);
 
 % Run your K-Means algorithm on this data
 % You should try different values of K and max_iters here
+%reducing a 24 bit colour to 4 bit, overall reducing size of image by 6
 K = 16; 
 max_iters = 10;
 
