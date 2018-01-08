@@ -20,7 +20,7 @@ S = zeros(n);
 %       number of examples).
 %
 
-sigma = 1/m * X * X';
+sigma = 1/m * X' * X;
 %this does singlular value decomp where X is the 1/m(XX') from sample, normalized cov mtx
 %proc of SVD transforms the example from one vector space to another. 
 [U,S,V] = svd(sigma);

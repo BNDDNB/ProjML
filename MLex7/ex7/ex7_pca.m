@@ -16,7 +16,8 @@
 %
 %  For this exercise, you will not need to change any code in this file,
 %  or any other files other than those mentioned above.
-%
+% process that connects all examples, comments will be added to each individual
+% section below
 
 %% Initialization
 clear ; close all; clc
