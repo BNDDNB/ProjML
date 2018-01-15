@@ -21,7 +21,10 @@ X_rec = zeros(size(Z, 1), size(U, 1));
 %               Notice that U(j, 1:K) is a row vector.
 %               
 
+%recovery is to reverse the svd processes or the left/right singular vectors
+%ignoring 
 
+X_rec = Z * U(:,1:K)';
 
 % =============================================================
 
