@@ -24,10 +24,18 @@ for epsilon = min(pval):stepsize:max(pval)
     %       of 0's and 1's of the outlier predictions
 
 
+%pval is the calculated value based on X from validation set
+%hence first getting the outliers
 
+    predictions = (pval<epsilon);
+    trueval = yval;
 
-
-
+    tp = sum((predictions==1 & trueval==1)==1);
+    fp = sum((predictions==1 & trueval==0)==1);
+    fn = sum((predictions==0 & trueval==1)==1);
+    prec = tp/(tp+fp);
+    rec = tp/(tp+fn);
+    F1 = 2*prec*rec/(prec+rec);
 
 
 

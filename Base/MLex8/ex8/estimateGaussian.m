@@ -21,12 +21,11 @@ sigma2 = zeros(n, 1);
 %               should contain variance of the i-th feature.
 %
 
+%mean and var based on the feature, not the sample
+%otherwise meaningless
 
-
-
-
-
-
+mu = mean(X);
+sigma2=var(X,1);
 
 
 
