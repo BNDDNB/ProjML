@@ -11,6 +11,7 @@ Ynorm = zeros(size(Y));
 for i = 1:m
     idx = find(R(i, :) == 1);
     Ymean(i) = mean(Y(i, idx));
+%unrated value stay unrated, rated will be decuted by mean
     Ynorm(i, idx) = Y(i, idx) - Ymean(i);
 end
 
